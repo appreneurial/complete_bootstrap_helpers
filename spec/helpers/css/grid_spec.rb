@@ -7,6 +7,16 @@ describe CompleteBootstrapHelpers do
 	describe "#bootstrap_grid_column" do
 		let(:output) { helper.bootstrap_grid_column(options) { block } }
 
+		describe "with offset: {sm: 3, md: 2}" do
+			before do
+				options[:offset] = {sm: 3, md: 2}
+			end
+
+			it "outputs div.col-sm-offset-3.col-md-offset-2 containing block" do
+				expect(output).to have_css("div.col-sm-offset-3.col-md-offset-2", text: block)
+			end
+		end
+
 		describe "with size: {xs: 12, sm: 6, md: 8}" do
 			before do
 				options[:size] = {xs: 12, sm: 6, md: 8}
