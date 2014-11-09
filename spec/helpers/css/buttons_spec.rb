@@ -13,6 +13,16 @@ describe CompleteBootstrapHelpers do
 			end
 		end
 
+		describe "with active: true" do
+			before do
+				options[:active] = true
+			end
+
+			it "outputs button.btn.btn-default.active[type='button'] containing text" do
+				expect(output).to have_css("button.btn.btn-default.active[type='button']", text: text)
+			end
+		end
+
 		describe "with block: true" do
 			before do
 				options[:block] = true

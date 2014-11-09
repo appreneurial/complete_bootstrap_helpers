@@ -1,6 +1,7 @@
 module CompleteBootstrapHelpers
 	def bootstrap_button(text, options = {})
 		button_classes = ["btn"]
+		button_classes << "active" if options.delete(:active) == true
 		button_classes << "btn-block" if options.delete(:block) == true
 		button_classes << "btn-#{options.delete(:size).to_s.dasherize}" if options[:size]
 		button_classes << (options[:style] ? "btn-#{options.delete(:style).to_s.dasherize}" : "btn-default")
