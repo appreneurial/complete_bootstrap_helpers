@@ -23,6 +23,16 @@ describe CompleteBootstrapHelpers do
 			end
 		end
 
+		describe "with hover: true" do
+			before do
+				options[:hover] = true
+			end
+
+			it "outputs table.table.table-hover containing block" do
+				expect(output).to have_css("table.table.table-hover", text: block)
+			end
+		end
+
 		describe "with striped: true" do
 			before do
 				options[:striped] = true
