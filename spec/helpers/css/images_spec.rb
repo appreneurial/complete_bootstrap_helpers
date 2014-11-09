@@ -21,5 +21,15 @@ describe CompleteBootstrapHelpers do
 				expect(output).to have_css("img.img-responsive")
 			end
 		end
+
+		describe "with shape: :rounded" do
+			before do
+				options[:shape] = :rounded
+			end
+
+			it "outputs img.img-rounded" do
+				expect(output).to have_css("img.img-rounded")
+			end
+		end
 	end
 end
