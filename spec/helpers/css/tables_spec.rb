@@ -12,5 +12,15 @@ describe CompleteBootstrapHelpers do
 				expect(output).to have_css("table.table", text: block)
 			end
 		end
+
+		describe "with striped: true" do
+			before do
+				options[:striped] = true
+			end
+
+			it "outputs table.table.table-striped containing block" do
+				expect(output).to have_css("table.table.table-striped", text: block)
+			end
+		end
 	end
 end
