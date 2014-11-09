@@ -1,10 +1,16 @@
 module CompleteBootstrapHelpers
 	def bootstrap_grid_column(options = {}, &block)
 		div_classes = []
-		options[:offset].each do |key, value|
+		options.delete(:offset).each do |key, value|
 			div_classes << "col-#{key}-offset-#{value}"
 		end if options[:offset]
-		options[:size].each do |key, value|
+		options.delete(:pull).each do |key, value|
+			div_classes << "col-#{key}-pull-#{value}"
+		end if options[:pull]
+		options.delete(:push).each do |key, value|
+			div_classes << "col-#{key}-push-#{value}"
+		end if options[:push]
+		options.delete(:size).each do |key, value|
 			div_classes << "col-#{key}-#{value}"
 		end if options[:size]
 		div_classes << options.delete(:class)

@@ -17,6 +17,26 @@ describe CompleteBootstrapHelpers do
 			end
 		end
 
+		describe "with pull: {sm: 3, md: 2}" do
+			before do
+				options[:pull] = {sm: 3, md: 2}
+			end
+
+			it "outputs div.col-sm-pull-3.col-md-pull-2 containing block" do
+				expect(output).to have_css("div.col-sm-pull-3.col-md-pull-2", text: block)
+			end
+		end
+
+		describe "with push: {sm: 3, md: 2}" do
+			before do
+				options[:push] = {sm: 3, md: 2}
+			end
+
+			it "outputs div.col-sm-push-3.col-md-push-2 containing block" do
+				expect(output).to have_css("div.col-sm-push-3.col-md-push-2", text: block)
+			end
+		end
+
 		describe "with size: {xs: 12, sm: 6, md: 8}" do
 			before do
 				options[:size] = {xs: 12, sm: 6, md: 8}
