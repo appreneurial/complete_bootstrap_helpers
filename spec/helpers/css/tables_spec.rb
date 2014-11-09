@@ -23,6 +23,16 @@ describe CompleteBootstrapHelpers do
 			end
 		end
 
+		describe "with condensed: true" do
+			before do
+				options[:condensed] = true
+			end
+
+			it "outputs table.table.table-condensed containing block" do
+				expect(output).to have_css("table.table.table-condensed", text: block)
+			end
+		end
+
 		describe "with hover: true" do
 			before do
 				options[:hover] = true

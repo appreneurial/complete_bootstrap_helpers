@@ -2,6 +2,7 @@ module CompleteBootstrapHelpers
 	def bootstrap_table(options = {}, &block)
 		table_classes = ["table"]
 		table_classes << "table-bordered" if options.delete(:bordered) == true
+		table_classes << "table-condensed" if options.delete(:condensed) == true
 		table_classes << "table-hover" if options.delete(:hover) == true
 		table_classes << "table-striped" if options.delete(:striped) == true
 		table_classes << options.delete(:class)
