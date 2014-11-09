@@ -13,6 +13,16 @@ describe CompleteBootstrapHelpers do
 			end
 		end
 
+		describe "with bordered: true" do
+			before do
+				options[:bordered] = true
+			end
+
+			it "outputs table.table.table-bordered containing block" do
+				expect(output).to have_css("table.table.table-bordered", text: block)
+			end
+		end
+
 		describe "with striped: true" do
 			before do
 				options[:striped] = true
