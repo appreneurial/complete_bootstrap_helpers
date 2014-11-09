@@ -43,6 +43,16 @@ describe CompleteBootstrapHelpers do
 			end
 		end
 
+		describe "with responsive: true" do
+			before do
+				options[:responsive] = true
+			end
+
+			it "outputs div.table-responsive containing table.table containing block" do
+				expect(output).to have_css("div.table-responsive table.table", text: block)
+			end
+		end
+
 		describe "with striped: true" do
 			before do
 				options[:striped] = true
