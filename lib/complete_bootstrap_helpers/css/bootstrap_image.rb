@@ -1,0 +1,10 @@
+module CompleteBootstrapHelpers
+	def bootstrap_image(options = {})
+		img_classes = []
+		img_classes << "img-responsive" if options.delete(:responsive) == true
+		img_classes << options.delete(:class)
+		options[:class] = img_classes.join(" ")
+
+		content_tag("img", nil, options)
+	end
+end
