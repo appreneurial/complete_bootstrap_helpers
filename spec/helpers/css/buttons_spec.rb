@@ -33,6 +33,16 @@ describe CompleteBootstrapHelpers do
 			end
 		end
 
+		describe "with disabled: true" do
+			before do
+				options[:disabled] = true
+			end
+
+			it "outputs button.btn.btn-default[disabled='disabled'][type='button'] containing text" do
+				expect(output).to have_css("button.btn.btn-default[disabled='disabled'][type='button']", text: text)
+			end
+		end
+
 		describe "with size: :lg" do
 			before do
 				options[:size] = :lg
