@@ -13,6 +13,26 @@ describe CompleteBootstrapHelpers do
 			end
 		end
 
+		describe "with block: true" do
+			before do
+				options[:block] = true
+			end
+
+			it "outputs button.btn.btn-default.btn-block[type='button'] containing text" do
+				expect(output).to have_css("button.btn.btn-default.btn-block[type='button']", text: text)
+			end
+		end
+
+		describe "with size: :lg" do
+			before do
+				options[:size] = :lg
+			end
+
+			it "outputs button.btn.btn-default.btn-lg[type='button'] containing text" do
+				expect(output).to have_css("button.btn.btn-default.btn-lg[type='button']", text: text)
+			end
+		end
+
 		describe "with style: :primary" do
 			before do
 				options[:style] = :primary
