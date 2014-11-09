@@ -1,8 +1,30 @@
 require 'rails_helper'
 
 describe CompleteBootstrapHelpers do
+	let!(:options) { {} }
+	let!(:block) { "This is the block content" }
+
+	describe "#bootstrap_container" do
+		let(:output) { helper.bootstrap_container(options) { block } }
+
+		describe "with no options" do
+			it "outputs div.container containing block" do
+				expect(output).to have_css("div.container", text: block)
+			end
+		end
+
+		describe "with fluid: true" do
+			before do
+				options[:fluid] = true
+			end
+
+			it "outputs div.container-fluid containing block" do
+				expect(output).to have_css("div.container-fluid", text: block)
+			end
+		end
+	end
+
 	describe "#bootstrap_meta_viewport" do
-		let!(:options) { {} }
 		let(:output) { helper.bootstrap_meta_viewport(options) }
 
 		describe "with no options" do
